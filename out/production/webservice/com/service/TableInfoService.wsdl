@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.com" xmlns:intf="http://service.com" xmlns:tns1="http://dto.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dto.com"/>
+   <element name="name" type="xsd:string"/>
+   <element name="getNameReturn" type="xsd:string"/>
+   <element name="name1" type="xsd:string"/>
+   <element name="getByNameReturn" type="xsd:string"/>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="getUserAllReturn" type="impl:ArrayOf_xsd_anyType"/>
+   <element name="getOneReturn" type="tns1:SysUser"/>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://dto.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.com"/>
+   <complexType name="SysUser">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="endActiveDate" nillable="true" type="xsd:dateTime"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="phone" nillable="true" type="xsd:string"/>
+     <element name="startActiveDate" nillable="true" type="xsd:dateTime"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+     <element name="userName" nillable="true" type="xsd:string"/>
+     <element name="userType" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getOneRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="getByNameResponse">
+
+      <wsdl:part element="impl:getByNameReturn" name="getByNameReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNameRequest">
+
+      <wsdl:part element="impl:name" name="name"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserAllResponse">
+
+      <wsdl:part element="impl:getUserAllReturn" name="getUserAllReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserAllRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="getByNameRequest">
+
+      <wsdl:part element="impl:name1" name="name"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNameResponse">
+
+      <wsdl:part element="impl:getNameReturn" name="getNameReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneResponse">
+
+      <wsdl:part element="impl:getOneReturn" name="getOneReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TableInfoService">
+
+      <wsdl:operation name="getName" parameterOrder="name">
+
+         <wsdl:input message="impl:getNameRequest" name="getNameRequest"/>
+
+         <wsdl:output message="impl:getNameResponse" name="getNameResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getByName" parameterOrder="name">
+
+         <wsdl:input message="impl:getByNameRequest" name="getByNameRequest"/>
+
+         <wsdl:output message="impl:getByNameResponse" name="getByNameResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserAll">
+
+         <wsdl:input message="impl:getUserAllRequest" name="getUserAllRequest"/>
+
+         <wsdl:output message="impl:getUserAllResponse" name="getUserAllResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOne">
+
+         <wsdl:input message="impl:getOneRequest" name="getOneRequest"/>
+
+         <wsdl:output message="impl:getOneResponse" name="getOneResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TableInfoServiceSoapBinding" type="impl:TableInfoService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserAll">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOne">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOneRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOneResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TableInfoServiceService">
+
+      <wsdl:port binding="impl:TableInfoServiceSoapBinding" name="TableInfoService">
+
+         <wsdlsoap:address location="http://localhost:8080//services/com/service/TableInfoService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
